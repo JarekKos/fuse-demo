@@ -1,6 +1,6 @@
-const express = require('express');
-const path = require('path');
-const app = express();
+var express = require('express');
+var path = require('path');
+var app = express();
 
 app.use(express.static(__dirname + '/dist'));
 
@@ -8,6 +8,8 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname + 'dist/index.html'));
 });
 
-app.listen(process.env.Port || 8080);
+var port = process.env.PORT || 8080
 
-console.log('App works');
+app.listen(port);
+
+console.log('App works on port ' + port);

@@ -1,13 +1,21 @@
-<div id="custom-search-input">
-  <div class="input-group col-md-12">
-    <input type="text" class="form-control input-lg" placeholder="Buscar" #inputField />
-    <span class="input-group-btn">
-      <button class="btn btn-info btn-lg" type="button" (click)="search(inputField.value)">
-          <i class="glyphicon glyphicon-search"></i>
-      </button>
-  </span>
+<form (ngSubmit)="onSubmit()">
+  <div id="custom-search-input">
+    <div class="input-group col-md-12">
+        <input
+          type="text"
+          class="form-control input-lg"
+          placeholder="What is your question?"
+          [(ngModel)]="inputValue"
+          [ngModelOptions]="{standalone: true}"
+        />
+        <span class="input-group-btn">
+        <button class="btn btn-info btn-lg" type="submit" [disabled]="isFormDisabled">
+            <i class="glyphicon glyphicon-search"></i>
+        </button>
+      </span>
+    </div>
   </div>
+</form>
+<div class="list-group">
+  <a *ngFor="let item of list" class="list-group-item list-group-item-action">{{item.title}}</a>
 </div>
-<ul class="list-group">
-  <li *ngFor="let item of list | async" class="list-group-item">{{item.title}}</li>
-</ul>

@@ -9,12 +9,20 @@ import 'rxjs/add/operator/debounceTime';
 })
 export class SearchComponent {
 
-  list = null;
+  list = [];
+  inputValue = '';
+  isFormDisabled = false;
 
   constructor(private dataLoader: DataLoaderService) { }
 
-  search(value) {
-    this.list = this.dataLoader.getData(value);
+  onSubmit() {
+    this.isFormDisabled = true;
+    this.dataLoader.getData(this.inputValue).subscribe(
+      data => {
+        this.list = data;
+        this.isFormDisabled = false;
+      }
+    );
   }
 
 }

@@ -3,6 +3,7 @@
   border: solid 1px #E4E4E4;
   border-radius: 6px;
   background-color: #fff;
+  margin-top: 50px;
 }
 
 input {
@@ -10,10 +11,11 @@ input {
   box-shadow: none;
 }
 
-input:focus {
+.input-group .form-control:focus {
   outline: 0;
   border: 0;
   box-shadow: none;
+  z-index: auto;
 }
 
 button {

@@ -24,4 +24,7 @@
     </mat-form-field>
   </div>
 </form>
-<div class="col-md-12 answer" *ngIf="answer" [innerHTML]="answer | async"></div>
+<div class="col-md-12 answer" *ngIf="answer && answer.length > 0" [innerHTML]="answer"></div>
+<div class="col-md-12 answer" *ngIf="answer && answer.length === 0">
+  We don't know answer on your question
+</div>

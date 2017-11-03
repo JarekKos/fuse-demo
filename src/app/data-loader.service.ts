@@ -25,7 +25,9 @@ export class DataLoaderService {
   }
 
   getAnswers(tag) {
-    return Observable.of(this.answers.search(tag)).map(answerArr => answerArr[0]['text']);
+    return Observable.of(this.answers.search(tag)).map(answerArr => {
+      return Array.isArray(answerArr) && answerArr[0] ? answerArr[0]['text'] : [];
+    });
   }
 
 }

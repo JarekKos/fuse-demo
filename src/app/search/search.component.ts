@@ -24,13 +24,23 @@ export class SearchComponent {
     );
   }
 
-  onSubmit(fm) {
-    console.log(fm);
+  onSubmit() {
+    this.dataLoader.getQuestions(this.question).subscribe(
+      data => {
+        const question = Array.isArray(data) && data.length > 0 ? data[0] : {tags: ['xxx']};
+        console.log(question);
+        this.dataLoader.getAnswers(question['tags'][0]).subscribe(
+          answer => this.answer = answer,
+        );
+      }
+    );
   }
 
   optionSelected(ev) {
     this.question = ev.option.viewValue;
-    this.answer = this.dataLoader.getAnswers(ev.option.value[0]);
+    this.dataLoader.getAnswers(ev.option.value[0]).subscribe(
+      answer => this.answer = answer,
+    );
   }
 
 }

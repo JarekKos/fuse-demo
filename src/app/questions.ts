@@ -39,6 +39,26 @@ const questions = [
     text: 'What do the dates on the packaging mean?',
     tags: ['tenthAnswer']
   },
+  {
+    text: 'When was Pepsi-Cola invented? How did it get its name?',
+    tags: ['eleventhAnswer']
+  },
+  {
+    text: 'Where can I buy Pepsi merchandise?',
+    tags: ['twelfthAnswer']
+  },
+  {
+    text: 'Where can I find information on PepsiCo?',
+    tags: ['thirteenthAnswer']
+  },
+  {
+    text: 'I\'m interested in buying stock in PepsiCo. What steps must I take in order to do so?',
+    tags: ['fifteenthAnswer']
+  },
+  {
+    text: 'Where can I find information regarding nutrition and ingredients?',
+    tags: ['sixteenthAnswer']
+  }
 ];
 
 export default questions;

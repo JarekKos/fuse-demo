@@ -70,6 +70,36 @@ const answers = [
     'their absolute best flavor.',
     tags: ['tenthAnswer']
   },
+  {
+    text: 'In 1898, small-town pharmacist Caleb D. Bradham looked for a name that would better describe his ' +
+    'formula -- which he was selling under the name "Brad\'s Drink."  He bought the name "Pep Kola" from a ' +
+    'local competitor and changed it to Pepsi-Cola.<br/>' +
+    'Today, every one of our workers strives to maintain the same high standards of quality and taste that ' +
+    'have made Pepsi so popular the world over.  As our global reach expands, so too does our corporate ' +
+    'responsibility, which is highlighted by PepsiCo\'s company-wide Performance With Purpose initiative.',
+    tags: ['eleventhAnswer']
+  },
+  {
+    text: 'You can shop for the latest Pepsi merchandise and apparel at ' +
+    '<a href="http://shop.pepsi.com/store/">http://shop.pepsi.com/store/</a>.',
+    tags: ['twelfthAnswer']
+  },
+  {
+    text: 'For information specifically related to PepsiCo, please visit ' +
+    '<a href="www.pepsico.com">www.pepsico.com</a>.',
+    tags: ['thirteenthAnswer']
+  },
+  {
+    text: 'Information for potential investors, including downloadable copies of recent PepsiCo annual ' +
+    'reports, can be found at ' +
+    '<a href="http://www.pepsico.com/Investors.html">http://www.pepsico.com/Investors.html</a>.',
+    tags: ['fifteenthAnswer']
+  },
+  {
+    text: 'The complete list of our products, their ingredients, and extensive nutrition facts can be' +
+    ' found at <a href="http://www.pepsicobeveragefacts.com/">http://www.pepsicobeveragefacts.com/</a>.',
+    tags: ['sixteenthAnswer']
+  }
 ];
 
 export default answers;

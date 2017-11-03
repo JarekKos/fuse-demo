@@ -1,21 +1,29 @@
-<form>
+<form class="example-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
   <div id="custom-search-input">
-    <div class="input-group col-md-12">
-        <input
-          type="text"
-          class="form-control input-lg"
-          placeholder="What is your question?"
-          #inputField
-          (keyup)="onKeyPress(inputField.value)"
-        />
-        <span class="input-group-btn">
-        <button class="btn btn-info btn-lg" type="submit" [disabled]="isFormDisabled">
+    <mat-form-field class="input-group col-md-12">
+      <input
+        type="text"
+        class="form-control input-lg"
+        placeholder="What is your question?"
+        matInput
+        [matAutocomplete]="auto"
+        (keyup)="onKeyUp()"
+        [(ngModel)]="question"
+        [ngModelOptions]="{standalone: true}"
+      />
+      <span class="input-group-btn">
+        <button class="btn btn-info btn-lg" type="submit">
             <i class="glyphicon glyphicon-search"></i>
         </button>
       </span>
-    </div>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)">
+        <mat-option *ngFor="let item of questions" [value]="item.tags">
+          {{ item.text }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
   </div>
 </form>
-<div class="list-group">
-  <a *ngFor="let item of list" class="list-group-item list-group-item-action">{{item.title}}</a>
+<div class="col-md-12 answer" *ngIf="answer" >
+  {{answer | async}}
 </div>

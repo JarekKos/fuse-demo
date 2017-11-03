@@ -6,7 +6,8 @@ const answers = [
     'for more than ten years. A patriotic package used in 2001 by Dr. Pepper (which is not a part of PepsiCo) ' +
     'was inappropriately linked to Pepsi. Thanks for giving us the chance to clarify the situation and please ' +
     'feel free to share this message with anyone else who may have received the erroneous email. ' +
-    'Details of the hoax can be found at http://www.snopes.com/politics/business/undergod.asp.',
+    'Details of the hoax can be found at ' +
+    '<a href="http://www.snopes.com/politics/business/undergod.asp">http://www.snopes.com/politics/business/undergod.asp.</a>',
     tags: ['firstAnswer']
   },
   {
@@ -18,12 +19,12 @@ const answers = [
   {
     text: 'Pepsi Throwback is now Pepsi Cola Made With Real Sugar. It’s the same great formula, ' +
     'just updated name and graphics! To see where you can purchase Pepsi Cola Made With Real Sugar, ' +
-    'click on the Where to Buy tab, or visit http://itemlocator.pepsico.com/pepsi',
+    'click on the Where to Buy tab, or visit <a href="http://itemlocator.pepsico.com/pepsi">http://itemlocator.pepsico.com/pepsi</a>',
     tags: ['thirdAnswer']
   },
   {
     text: 'To see a list of stores that have sold your favorite products in the last 30 days, ' +
-    'go to http://www.pepsicobeveragefacts.com/home/wheretobuy.',
+    'go to <a href="http://www.pepsicobeveragefacts.com/home/wheretobuy">http://www.pepsicobeveragefacts.com/home/wheretobuy</a>.',
     tags: ['fourthAnswer']
   },
   {
@@ -32,28 +33,33 @@ const answers = [
     'reports can be obtained by clicking on the “Investors” tab. Just please know that some information you ' +
     'may be looking for will be unavailable due to its proprietary nature (marketing plans, ' +
     'advertising strategies, exact product formulations, processing technology, etc.).<br/>' +
-    'If you’re looking for information on the history and story of Pepsi-Cola, click here.<br/>' +
+    'If you’re looking for information on the history and story of Pepsi-Cola, click ' +
+    '<a href="https://secure.footprint.net/cupages/pepsi/ThePepsiStory.pdf">here</a>.<br/>' +
     'Unfortunately, we’re unable to research and prepare special answers for the numerous requests we ' +
     'receive each day. However, your public library or the internet may be excellent research sources on ' +
     'this subject.',
     tags: ['fifthAnswer']
   },
   {
-    text: 'https://www.iwanttoservepepsi.com/aaws/',
+    text: '<a href="https://www.iwanttoservepepsi.com/aaws/">https://www.iwanttoservepepsi.com/aaws/</a>',
     tags: ['sixthAnswer']
   },
   {
-    text: 'In order to apply for a job at PepsiCo, head to http://www.pepsico.com/Careers.html, ' +
+    text: 'In order to apply for a job at PepsiCo, head to ' +
+    '<a href="http://www.pepsico.com/Careers.html">http://www.pepsico.com/Careers.html</a>, ' +
     'our all-inclusive stop for job searching, résumé submissions and more.',
     tags: ['seventhAnswer']
   },
   {
-    text: 'To learn about PepsiCo recycling initiatives and Recycle Rally, click here.?',
+    text: 'To learn about PepsiCo recycling initiatives and Recycle Rally, ' +
+    'click <a href="https://cu.pepsico.com/pepsico-recycling">here</a>.?',
     tags: ['eighthAnswer']
   },
   {
     text: 'Read detailed accounts of PepsiCo’s company-wide initiative to protect the earth’s natural ' +
-    'resources through innovation and efficiency at http://www.pepsico.com/Purpose/Environmental-Sustainability.html.',
+    'resources through innovation and efficiency at ' +
+    '<a href="http://www.pepsico.com/Purpose/Environmental-Sustainability.html">' +
+    'http://www.pepsico.com/Purpose/Environmental-Sustainability.html</a>.',
     tags: ['ninthAnswer']
   },
   {

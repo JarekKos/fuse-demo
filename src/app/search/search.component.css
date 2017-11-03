@@ -71,4 +71,5 @@ button:hover {
   background-color: gainsboro;
   width: calc(100% - 45px);
   padding: 5px 10px;
+  margin-bottom: 75px;
 }

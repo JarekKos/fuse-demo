@@ -1,3 +1,7 @@
 .cdk-overlay-pane{
   position: absolute;
 }
+
+.mat-autocomplete-panel {
+  background-color: #fff;
+}

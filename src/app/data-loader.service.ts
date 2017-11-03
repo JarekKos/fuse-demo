@@ -14,7 +14,7 @@ export class DataLoaderService {
   private answers: Fuse = null;
 
   constructor() {
-    this.questions = new Fuse(questions, {keys: ['text'], threshold: 0.25, minMatchCharLength: 4});
+    this.questions = new Fuse(questions, {keys: ['text'], threshold: 0.25, minMatchCharLength: 4, tokenize: true,});
     this.answers = new Fuse(answers, {keys: ['tags'], threshold: 0.1});
   }
 

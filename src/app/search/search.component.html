@@ -1,12 +1,12 @@
-<form (ngSubmit)="onSubmit()">
+<form>
   <div id="custom-search-input">
     <div class="input-group col-md-12">
         <input
           type="text"
           class="form-control input-lg"
           placeholder="What is your question?"
-          [(ngModel)]="inputValue"
-          [ngModelOptions]="{standalone: true}"
+          #inputField
+          (keyup)="onKeyPress(inputField.value)"
         />
         <span class="input-group-btn">
         <button class="btn btn-info btn-lg" type="submit" [disabled]="isFormDisabled">

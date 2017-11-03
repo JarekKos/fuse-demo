@@ -10,17 +10,13 @@ import 'rxjs/add/operator/debounceTime';
 export class SearchComponent {
 
   list = [];
-  inputValue = '';
-  isFormDisabled = false;
 
   constructor(private dataLoader: DataLoaderService) { }
 
-  onSubmit() {
-    this.isFormDisabled = true;
-    this.dataLoader.getData(this.inputValue).subscribe(
+  onKeyPress(value) {
+    this.dataLoader.getData(value).subscribe(
       data => {
         this.list = data;
-        this.isFormDisabled = false;
       }
     );
   }

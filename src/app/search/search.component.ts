@@ -19,7 +19,7 @@ export class SearchComponent {
   onKeyUp() {
     this.dataLoader.getQuestions(this.question).subscribe(
       data => {
-        this.questions = data;
+        this.questions = data; //
       }
     );
   }

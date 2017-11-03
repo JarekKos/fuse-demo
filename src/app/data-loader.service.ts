@@ -1,33 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import * as Fuse from 'fuse.js';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
-import * as Fuse from 'fuse.js';
+import 'rxjs/add/operator/map';
 
-import { list } from './data';
+import questions from './questions';
+import answers from './answers';
 
 @Injectable()
 export class DataLoaderService {
-
-  private fuse: Fuse = null;
+  private questions: Fuse = null;
+  private answers: Fuse = null;
 
   constructor() {
-    const options = {
-      shouldSort: true,
-      threshold: 0.6,
-      location: 0,
-      distance: 100,
-      maxPatternLength: 32,
-      minMatchCharLength: 1,
-      keys: [
-        'title',
-      ]
-    };
-    this.fuse = new Fuse(list, options);
+    this.questions = new Fuse(questions, {keys: ['text'], threshold: 0.25, minMatchCharLength: 4});
+    this.answers = new Fuse(answers, {keys: ['tags'], threshold: 0.1});
   }
 
-  getData(search) {
-    return Observable.of(this.fuse.search(search)).delay(800);
+  getQuestions(text) {
+    return Observable.of(this.questions.search(text));
+  }
+
+  getAnswers(tag) {
+    return Observable.of(this.answers.search(tag)).map(answerArr => answerArr[0]['text']);
   }
 
 }

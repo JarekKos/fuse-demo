@@ -15,13 +15,12 @@ export class DataLoaderService {
 
   constructor() {
     this.questions = new Fuse(questions, {keys: ['text'],
-      threshold: 0.75, tokenize: true,
+      threshold: 0.3, tokenize: true,
       shouldSort: true, matchAllTokens: true});
     this.answers = new Fuse(answers, {keys: ['tags'], threshold: 0.1});
   }
 
   getQuestions(text) {
-    console.log(this.questions.search(text));
     return Observable.of(this.questions.search(text));
   }
 

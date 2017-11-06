@@ -2,8 +2,6 @@
 
 Alternatively, project can be run on a local machine (read the instructions below).
 
-
-
 ## Development server
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.

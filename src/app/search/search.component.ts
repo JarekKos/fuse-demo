@@ -23,9 +23,9 @@ export class SearchComponent {
   onKeyUp() {
     const question = this.question.trim();
 
-    if (this.countWords(question) <= 1) {
+    if (question.length < 3) {
       this.questions = [];
-    } else if (this.countWords(question) > 1) {
+    } else if (question.length >= 3) {
       this.dataLoader.getQuestions(question).subscribe(
         data => {
           this.questions = data;
@@ -51,10 +51,5 @@ export class SearchComponent {
   optionSelected(ev: MatAutocompleteSelectedEvent) {
     this.question = ev.option.viewValue;
     this.onSubmit();
-  }
-
-  private countWords(str = ''): number {
-    const arr = str.split(' ');
-    return arr.length;
   }
 }

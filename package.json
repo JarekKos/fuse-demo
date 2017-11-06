@@ -1,7 +1,11 @@
 {
   "name": "fuse-demo",
   "version": "0.0.0",
-  "license": "MIT",
+  "author": {
+    "name" : "Jarosław Kosterkiewicz",
+    "email" : "jaroslaw.kosterkiewicz@sofomo.com"
+  },
+  "description": "Simple demo of usage fuse.js",
   "scripts": {
     "ng": "ng",
     "start": "node app.js",

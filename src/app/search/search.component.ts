@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import {DataLoaderService} from '../data-loader.service';
-import 'rxjs/add/operator/debounceTime';
+import { Observable } from 'rxjs/Observable';
+import { MatAutocompleteSelectedEvent } from '@angular/material';
+import 'rxjs/add/operator/switchMap';
+
+import { DataLoaderService } from '../data-loader.service';
 
 @Component({
   selector: 'fuse-demo-search',
@@ -9,38 +12,49 @@ import 'rxjs/add/operator/debounceTime';
 })
 export class SearchComponent {
 
-  questions = [];
+  questions: Array<{text: string, tags: Array<string>}> = [];
 
-  question = null;
-  answer = null;
+  question: string = null;
+  answer: string = null;
+  formSubmitted = false;
 
   constructor(private dataLoader: DataLoaderService) { }
 
   onKeyUp() {
-    this.dataLoader.getQuestions(this.question).subscribe(
-      data => {
-        this.questions = data;
-      }
-    );
+    const question = this.question.trim();
+
+    if (this.countWords(question) <= 1) {
+      this.questions = [];
+    } else if (this.countWords(question) > 1) {
+      this.dataLoader.getQuestions(question).subscribe(
+        data => {
+          this.questions = data;
+        }
+      );
+    }
   }
 
   onSubmit() {
-    this.dataLoader.getQuestions(this.question).subscribe(
-      data => {
-        const question = Array.isArray(data) && data.length > 0 ? data[0] : {tags: ['xxx']};
-        console.log(question);
-        this.dataLoader.getAnswers(question['tags'][0]).subscribe(
-          answer => this.answer = answer,
-        );
-      }
-    );
+    if (!this.question) {
+      return;
+    }
+
+    this.dataLoader.getQuestions(this.question)
+      .map(questions => questions.length > 0 ? questions[0] : null)
+      .switchMap(question => question ? this.dataLoader.getAnswers(question.tags[0]) : Observable.of(null))
+      .subscribe(answer => {
+        this.answer = answer;
+        this.formSubmitted = true;
+      });
   }
 
-  optionSelected(ev) {
+  optionSelected(ev: MatAutocompleteSelectedEvent) {
     this.question = ev.option.viewValue;
-    this.dataLoader.getAnswers(ev.option.value[0]).subscribe(
-      answer => this.answer = answer,
-    );
+    this.onSubmit();
   }
 
+  private countWords(str = ''): number {
+    const arr = str.split(' ');
+    return arr.length;
+  }
 }

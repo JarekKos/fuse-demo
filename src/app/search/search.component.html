@@ -17,14 +17,14 @@
         </button>
       </span>
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)">
-        <mat-option *ngFor="let item of questions" [value]="item.tags">
+        <mat-option *ngFor="let item of questions">
           {{ item.text }}
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
   </div>
 </form>
-<div class="col-md-12 answer" *ngIf="answer && answer.length > 0" [innerHTML]="answer"></div>
-<div class="col-md-12 answer" *ngIf="answer && answer.length === 0">
+<div class="col-md-12 answer" *ngIf="answer" [innerHTML]="answer"></div>
+<div class="col-md-12 answer" *ngIf="!answer && formSubmitted">
   We don't know answer on your question
 </div>
